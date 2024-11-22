@@ -39,3 +39,31 @@ function navAnimation() {
   });
 }
 navAnimation()
+
+function page2Animation() {
+  var rightElems = document.querySelectorAll(".right-elem");
+
+  rightElems.forEach(function (elem) {
+    elem.addEventListener("mouseenter", () => {
+      gsap.to(elem.childNodes[3], {
+        opacity: 1,
+        scale: 1,
+      });
+    });
+
+    elem.addEventListener("mouseleave", () => {
+      gsap.to(elem.childNodes[3], {
+        opacity: 0,
+        scale: 0,
+      });
+    });
+
+    elem.addEventListener("mousemove", (e) => {
+      gsap.to(elem.childNodes[3], {
+        x: e.x - elem.getBoundingClientRect().x - 90,
+        y: e.y - elem.getBoundingClientRect().y - 215,
+      });
+    });
+  });
+}
+page2Animation()
